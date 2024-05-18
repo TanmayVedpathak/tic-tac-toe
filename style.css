@@ -1,0 +1,236 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+/* :root {
+  --variant-1: #4f6f52;
+  --variant-2: #617f62;
+  --variant-3: #739072;
+  --variant-4: #a7d3aa;
+  --variant-5: #d2e3c8;
+} */
+
+/* :root {
+  --variant-1: #27374d;
+  --variant-2: #828f9d;
+  --variant-3: #526d82;
+  --variant-4: #9db2bf;
+  --variant-5: #dde6ed;
+} */
+/* :root {
+  --variant-1: #1a120b;
+  --variant-2: #2b1e16;
+  --variant-3: #3c2a21;
+  --variant-4: #d5cea3;
+  --variant-5: #e5e5cb;
+} */
+:root {
+  --variant-1: #756ab6;
+  --variant-2: #9179be;
+  --variant-3: #ac87c5;
+  --variant-4: #e0aed0;
+  --variant-5: #ffe5e5;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 35px 0;
+  background-color: var(--variant-3);
+  color: var(--variant-5);
+}
+
+.container_heading,
+.container_text,
+.container__instruction {
+  text-align: center;
+}
+
+.container_heading {
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
+.container_text {
+  color: var(--variant-4);
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.container__instruction {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.container__selection {
+  margin: 0 auto;
+  max-width: 200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container__selectionInput label {
+  display: block;
+  font-size: 25px;
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+}
+
+.container__selectionInput label input {
+  display: none;
+}
+
+.container__selectionInput label span {
+  display: block;
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  background-color: var(--variant-5);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.container__selectionInput label span::before {
+  content: "";
+  display: none;
+  width: 12px;
+  height: 12px;
+  background-color: var(--variant-1);
+  border-radius: 50%;
+}
+
+.container__selectionInput label input:checked + span::before {
+  display: block;
+}
+
+.container__selectionInput label:has(> input:disabled) {
+  opacity: 0.5;
+}
+
+.playing__section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.points {
+  /* background-color: blueviolet; */
+  width: 200px;
+  background-color: var(--variant-4);
+  border-radius: 20px;
+  padding: 10px 0;
+}
+
+.points > p {
+  font-size: 18px;
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--variant-2);
+}
+
+.points > h2 {
+  text-align: center;
+  font-size: 35px;
+}
+
+.board_container {
+  max-width: 280px;
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  gap: 20px;
+  /* margin: 40px auto; */
+  background-color: var(--variant-1);
+}
+
+.board_container .board_box {
+  width: 80px;
+  height: 80px;
+  background-color: var(--variant-3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* cursor: pointer; */
+  /* pointer-events: none; */
+  cursor: url("./assets/restricted.svg"), auto;
+  position: relative;
+}
+
+.board_container .board_box img {
+}
+@keyframes scaling {
+  from {
+    transform: scale(1.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.board_box.cross_pointer {
+  cursor: url("./assets/cross_cursor.svg"), auto;
+}
+
+.board_box.circle_pointer {
+  cursor: url("./assets/circle_cursor.svg"), auto;
+}
+
+.reset_btn {
+  max-width: 150px;
+  margin: 0px auto;
+}
+
+.reset_btn button {
+  color: var(--variant-5);
+  background-color: var(--variant-2);
+  width: 100%;
+  padding: 15px 0;
+  font-size: 18px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.reset_btn button:hover {
+  background-color: var(--variant-1);
+}
+
+.line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 100px;
+  background-color: var(--variant-4);
+  border-radius: 5px;
+  opacity: 0.7;
+  display: none;
+}
+
+.vertical_line {
+  display: block;
+}
+
+.horizontal_line {
+  display: block;
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.diagonal_line1 {
+  display: block;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.diagonal_line2 {
+  display: block;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
